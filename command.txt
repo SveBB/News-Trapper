@@ -1,0 +1,1 @@
+newshunter_env\Scripts\activate
