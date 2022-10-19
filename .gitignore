@@ -128,7 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Bots and temp folders
+# Individual project items
 temp
 DataStore.db
 config.py
+command.txt
+/newshunter_env
