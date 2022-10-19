@@ -7,7 +7,8 @@ class Polit (Scraper):
         """Переопределенный метод парсинга"""
         items = self.html.select('.news-full.stop > .title > a')
         for item in items:
-            title = {'text': '', 'source': '', 'url': ''}
+            title = {'name': '', 'text': '', 'source': '', 'url': ''}
+            title['name'] = self.name
             title['text'] = item.text
             title['source'] = self.target
             title['url'] = self.target + item.get('href')
@@ -17,6 +18,6 @@ class Polit (Scraper):
 
 
 if __name__ == '__main__':
-    obj = Polit('https://polit.ru', 'https://polit.ru/news/')
+    obj = Polit('ПОЛИТ.РУ', 'https://polit.ru', 'https://polit.ru/news/')
     obj.parse_html()
     obj.write_info()

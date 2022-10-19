@@ -7,7 +7,8 @@ class Ria (Scraper):
         """Переопределенный метод парсинга"""
         items = self.html.select('.cell-list__list > .m-no-image > a')
         for item in items:
-            title = {'text': '', 'source': '', 'url': ''}
+            title = {'name': '', 'text': '', 'source': '', 'url': ''}
+            title['name'] = self.name
             title['text'] = item.text
             title['source'] = self.target
             title['url'] = item.get('href')
@@ -16,6 +17,6 @@ class Ria (Scraper):
         return self.titles
 
 if __name__ == '__main__':
-    obj = Ria('https://ria.ru/', 'https://ria.ru/')
+    obj = Ria('РИА НОВОСТИ', 'https://ria.ru/', 'https://ria.ru/')
     obj.parse_html()
     obj.write_info()

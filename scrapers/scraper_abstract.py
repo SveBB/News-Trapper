@@ -9,13 +9,13 @@ from bs4 import BeautifulSoup as BS
 
 class Scraper (ABC):
     """Абстрктный класс для сборщиков информации"""
-    def __init__(self, target, url):
+    def __init__(self, name, target, url):
 
         __html_example = """<html><head><title>The Dormouse's story</title></head>
                         <body>
                         <p class="title"><b>The Dormouse's story</b></p>
                         <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>"""
-
+        self.name = name
         self.target = target
         self.url = url
         try:
@@ -27,25 +27,27 @@ class Scraper (ABC):
         self.titles  = []
     def write_info(self):
         """Запись полученных заголовков в общий файл"""
-        if os.path.exists('temp\collected_data.json'):
-            with open("temp\collected_data.json", "r+", encoding='utf-8') as file:
+        if os.path.exists('temp'):
+            pass
+        else:
+            os.makedirs('temp')
+
+        if os.path.exists('temp/collected_data.json'):
+            with open("temp/collected_data.json", "r+", encoding='utf-8') as file:
                 data = json.load(file)
                 data += self.titles
                 file.seek(0)
                 json.dump(data, file, ensure_ascii=False)
             file.close()
         else:
-            with open('temp\collected_data.json', 'w', encoding='utf-8') as file:
+            with open('temp/collected_data.json', 'w+', encoding='utf-8') as file:
                 json.dump(self.titles, file, ensure_ascii=False)
             file.close()
+
 
     @abstractmethod
     def parse_html(self):
         """Абстрактный метод парсинга полученного html,
            индивидаульно для структуры кажждого таргета.
            Метод должен заполнить self.titles записями
-           формата {'text': '', 'source': '', 'url': ''}"""
-
-
-if __name__ == '__main__':
-    print("RUN: ")
+           формата {'name': '', 'text': '', 'source': '', 'url': ''}"""

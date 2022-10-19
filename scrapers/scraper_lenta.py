@@ -8,7 +8,8 @@ class Lenta (Scraper):
         """Переопределенный метод парсинга"""
         items = self.html.select('.parts-page__item > a')
         for item in items:
-            title = {'text': '', 'source': '', 'url': ''}
+            title = {'name': '', 'text': '', 'source': '', 'url': ''}
+            title['name'] = self.name
             re_expression = '^\D+'
             title['text'] = re.findall(r''.join(re_expression), item.text)[0]
             title['source'] = self.target
@@ -22,6 +23,6 @@ class Lenta (Scraper):
         return self.titles
 
 if __name__ == '__main__':
-    obj = Lenta('https://lenta.ru', 'https://lenta.ru/parts/news/')
+    obj = Lenta('Lenta.ru', 'https://lenta.ru', 'https://lenta.ru/parts/news/')
     obj.parse_html()
     obj.write_info()
