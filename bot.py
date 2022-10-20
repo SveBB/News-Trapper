@@ -237,7 +237,7 @@ async def scheduled(wait_for, bot_dpc):
             if titles_new == []:
                 pass
             else:
-                await bot.send_message(user[0], text="НОВАЯ ПОДБОРКА НОВОСТЕЙ")
+                await bot.send_message(user[0], text="⚡️СВЕЖИЕ НОВОСТИ⚡️")
                 for title in titles_new:
                     # await bot.send_message(user[0], text=title[3] + "\n" + title[1] + "\nИсточник: "+title[0])
                     await bot.send_message(user[0], text=title[0] + "\n" + title[1] + "\nИсточник: "+title[2])
