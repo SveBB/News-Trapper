@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+=======
+# Individual project items
+temp
+DataStore.db
+command.txt
+/newshunter_env
+
+>>>>>>> development
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -55,6 +64,7 @@ coverage.xml
 *.mo
 *.pot
 
+<<<<<<< HEAD
 # Django stuff:
 *.log
 local_settings.py
@@ -67,6 +77,9 @@ instance/
 
 # Scrapy stuff:
 .scrapy
+=======
+
+>>>>>>> development
 
 # Sphinx documentation
 docs/_build/
