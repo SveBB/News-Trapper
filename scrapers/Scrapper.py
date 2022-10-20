@@ -34,11 +34,11 @@ class Scraper():
             print(title['text'])
             print(title['url'])
 
-lenta = Scraper('lenta', 'https://lenta.ru', 'https://lenta.ru/parts/news/')
-lenta.get_titles('.parts-page__item > a')
-lenta.clear_titles('^\D+')
+#lenta = Scraper('lenta', 'https://lenta.ru', 'https://lenta.ru/parts/news/')
+#lenta.get_titles('.parts-page__item > a')
+#lenta.clear_titles('^\D+')
 
 
-riaeconomy = Scraper('rio economy', 'https://ria.ru', 'https://ria.ru/economy/')
-riaeconomy.get_titles('.cell-list__list > .m-no-image > a')
-riaeconomy.clear_titles('')
+#riaeconomy = Scraper('rio economy', 'https://ria.ru', 'https://ria.ru/economy/')
+#riaeconomy.get_titles('.cell-list__list > .m-no-image > a')
+#riaeconomy.clear_titles('')

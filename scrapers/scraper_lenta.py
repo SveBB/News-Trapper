@@ -11,13 +11,16 @@ class Lenta (Scraper):
             title = {'name': '', 'text': '', 'source': '', 'url': ''}
             title['name'] = self.name
             re_expression = '^\D+'
-            title['text'] = re.findall(r''.join(re_expression), item.text)[0]
+            try:
+                title['text'] = re.findall(r''.join(re_expression), item.text)[0]
+            except Exception:
+                title['text'] = item.text
             title['source'] = self.target
             if item.get('href')[:4] == 'http':
                 title['url'] = item.get('href')
             else:
                 title['url'] = self.target + item.get('href')
-            if title['url'] != "/parts/news/2/":
+            if title['url'] != "/parts/news/2/" and title['text'] != "Показать ещеЗагрузка":
                 self.titles.append(title)
 
         return self.titles
