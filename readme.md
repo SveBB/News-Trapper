@@ -23,12 +23,8 @@ Q: Зачем мне это надо?
 
 A: Возможно получится создать действительно удобный инструмент и больше не надо будет ждать почтальона с газетой
 
-
-
-# Screenshots
-![Screenshot of cat](https://github.com/Sadykhzadeh/randcatbot-py/blob/master/screenshots/Hello_Cat.png)
-![Screenshot of inline cat](https://github.com/Sadykhzadeh/randcatbot-py/blob/master/screenshots/Hello_Inline_Cat.png)
-![Screenshot of dog](https://github.com/Sadykhzadeh/randcatbot-py/blob/master/screenshots/Hello_Dog.png)
+# Launch
+'docker-compose up --build' - собрать и запустить докер контейнер
 
 ## Author
 (C) 2020 by [Vadim Solopov](https://t.me/tohellim).
